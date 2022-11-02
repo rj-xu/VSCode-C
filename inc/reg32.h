@@ -59,8 +59,8 @@
   } while (0)
 
 #define REG32_FIELD_GET_BITS(reg, x, n, type) ((type)REG32_GET((reg), MASK32((x), (n))) >> (x))
-#define REG32_FIELD_SET_BITS(reg, x, n, val)                                             \
-  do {                                                                                   \
+#define REG32_FIELD_SET_BITS(reg, x, n, val)                                                     \
+  do {                                                                                           \
     REG32(reg) = (uint32_t)(REG32(reg) & (~MASK32((x), (n))) | (((val) & MASK(0, (n))) << (x))); \
   } while (0)
 #define REG32_FIELD_GET_BYTE(reg, byte, type) REG32_FIELD_GET_BITS(reg, MASK32((byte) * CHAR_BIT, CHAR_BIT, type)
